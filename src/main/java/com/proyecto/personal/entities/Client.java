@@ -1,5 +1,5 @@
 package com.proyecto.personal.entities;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,10 +30,10 @@ public class Client {
     private String email;
 
     @Column(name = "passwordd", nullable = false, length = 100)
-    private String passwordd;
+    private String password;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Vehicle> vehicle = new ArrayList<>();
+    private List<Vehicle> vehicles = new ArrayList<>();
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Shopping> shopping = new ArrayList<>();
